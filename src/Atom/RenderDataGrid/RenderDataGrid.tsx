@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import { dataGridTypesWithAdditionalElement } from "./types/renderDataGrid.types";
 import { Title } from "../Titile/Title";
 /**
- * Renders a data grid and provides options to download the data as an XLS or PDF file.
  * @param rows - The data to be rendered in the data grid.
  * @param columns - The columns to be displayed in the data grid.
  * @param title - The title of the data grid.
