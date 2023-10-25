@@ -4,6 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import { ReservationData } from "./types/reservationForm.types";
 import { useReservations } from "../../context/ContextData";
+import { v4 as uuidv4 } from "uuid";
 const initialState = {
   form: {
     origin: "",
@@ -50,7 +51,11 @@ const ReservationForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("Reservation submitted:", reservationData);
-    setReservations([...reservations, reservationData]);
+    const dataToSend = {
+      ...reservationData,
+      id: uuidv4(),
+    };
+    setReservations([...reservations, dataToSend]);
   };
 
   const { origin, destination, passengers, date, time } = reservationData;

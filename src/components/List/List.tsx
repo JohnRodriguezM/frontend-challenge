@@ -1,12 +1,20 @@
 import { RenderDataGrid } from "../../Atom/RenderDataGrid/RenderDataGrid";
 import { useReservations } from "../../context/ContextData";
 import { IconButton, Avatar } from "@material-ui/core";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 {
   /* debo hacerlo condicional si no hay elementos añadidos en la lista de las propiedad enviadas  */
 }
 export const List = (): JSX.Element => {
-  const { reservations } = useReservations();
+  const { reservations, setReservations } = useReservations();
+
+  const handleDeleteElement = (params) => {
+    const newReservations = reservations.filter(
+      (reservation: { id: string }) => reservation?.id !== params.row.id
+    );
+    setReservations(newReservations);
+  };
 
   const columns = [
     { field: "origin", headerName: "Origen", width: 150 },
@@ -22,15 +30,11 @@ export const List = (): JSX.Element => {
         <>
           <IconButton
             aria-label="delete"
-            size="large"
-            title="Eliminar relación catalogo TRD"
-            onClick={() =>
-              // handleDelete(row.id)
-              console.log(params.row)
-            }
+            title="Eliminar elemento de reserva"
+            onClick={() => handleDeleteElement(params)}
           >
             <Avatar
-              sx={{
+              style={{
                 width: 24,
                 height: 24,
                 background: "#fff",
