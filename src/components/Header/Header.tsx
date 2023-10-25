@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 // import DeleteIcon from '@material-ui/icons/Delete';
 
-function Header() {
+const Header = (): JSX.Element => {
   return (
     <AppBar position="static">
       <Toolbar>

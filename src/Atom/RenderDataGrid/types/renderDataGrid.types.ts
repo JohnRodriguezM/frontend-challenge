@@ -7,11 +7,11 @@ export interface dataGridTypes {
   /**
    * An array of rows to be displayed in the data grid.
    */
-  rows: any[];
+  rows: unknown[];
   /**
    * An array of columns to be displayed in the data grid.
    */
-  columns: any[];
+  columns: unknown[];
   /**
    * The title of the data grid.
    */

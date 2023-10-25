@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { TitleProps } from './types/title.types';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const Title: React.FC<TitleProps> = ({ title, width, fontSize }: TitleProps) => {
+export const Title: React.FC<TitleProps> = ({ title, width, fontSize }: TitleProps): JSX.Element => {
   return (
     <Box
       className={`border px-4 text-white fs-5 p-1`}
