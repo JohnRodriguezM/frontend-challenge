@@ -50,11 +50,22 @@ const ReservationForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Reservation submitted:", reservationData);
     const dataToSend = {
       ...reservationData,
       id: uuidv4(),
     };
+
+    if (
+      dataToSend.origin === "" ||
+      dataToSend.destination === "" ||
+      dataToSend.passengers === "" ||
+      dataToSend.date === "0" ||
+      dataToSend.time === "0"
+    ) {
+      alert("Por favor, rellene todos los campos");
+      return;
+    }
+
     setReservations([...reservations, dataToSend]);
   };
 

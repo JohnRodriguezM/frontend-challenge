@@ -56,6 +56,9 @@ export const List = (): JSX.Element => {
     },
   ];
 
+
+  if(!reservations.length) return (<></>)
+
   return (
     <>
       <RenderDataGrid
